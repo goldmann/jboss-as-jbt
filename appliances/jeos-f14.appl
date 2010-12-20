@@ -1,0 +1,12 @@
+name: jeos-f14
+summary: Just Enough Operating System based on Fedora 14
+os:
+  name: fedora
+  version: 14
+hardware:
+  partitions:
+    "/":
+      size: 2
+packages:
+  includes:
+    - @core
