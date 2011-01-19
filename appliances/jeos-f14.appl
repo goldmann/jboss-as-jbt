@@ -8,5 +8,4 @@ hardware:
     "/":
       size: 2
 packages:
-  includes:
-    - @core
+  - @core
