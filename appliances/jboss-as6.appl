@@ -1,0 +1,18 @@
+name: jboss-as6
+version: 1
+release: 0
+summary: Appliance with JBoss AS 6
+hardware:
+  memory: 1024
+appliances:
+  - jeos-f14
+packages:
+  - jboss-as6
+  - rsync
+  - zip
+  - wget
+  - openssh-clients
+repos:
+  - name: "jboss-as6"
+    baseurl: "file:///home/goldmann/jboss-as6/build/topdir/fedora/14/RPMS/noarch"
+    ephemeral: true
