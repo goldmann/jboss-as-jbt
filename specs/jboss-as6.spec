@@ -73,8 +73,8 @@ chmod 600 $RPM_BUILD_ROOT/etc/sysconfig/%{name}
 rm -Rf $RPM_BUILD_ROOT
 
 %pre
-/usr/sbin/groupadd -r %{name} 2>/dev/null || :
-/usr/sbin/useradd -c "JBoss AS" -r -s /bin/bash -d /opt/%{name} -g %{name} %{name} 2>/dev/null || :
+/usr/sbin/groupadd -r jboss 2>/dev/null || :
+/usr/sbin/useradd -c "JBoss AS" -m -r -s /bin/bash -g jboss jboss 2>/dev/null || :
 
 %post
 /sbin/chkconfig --add %{name}

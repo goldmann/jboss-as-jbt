@@ -8,5 +8,5 @@ packages:
   - jboss-as6-jbt
 repos:
   - name: "jboss-as6"
-    baseurl: "file:///home/goldmann/jboss-as6/build/topdir/fedora/14/RPMS/noarch"
+    baseurl: "file:///mnt/jboss-as-jbt/build/topdir/fedora/14/RPMS/noarch"
     ephemeral: true

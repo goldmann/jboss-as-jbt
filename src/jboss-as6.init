@@ -88,7 +88,7 @@ if [ "x$JBOSS_CLOUD_DEPLOYMENT" != "x" ]; then
         JBOSSCONF=${JBOSSCONF:-"cluster"}
     fi
 else
-  JBOSSCONF=${JBOSSCONF:-"all"}
+  JBOSSCONF=${JBOSSCONF:-"default"}
 fi
 
 IP_ADDRESS=`ip addr list eth0 | grep "inet " | cut -d' ' -f6 | cut -d/ -f1`
