@@ -66,7 +66,7 @@ echo "JBOSS_TMP=\$JBOSS_HOME/tmp"                       >> /etc/sysconfig/%{jbos
 rm -Rf $RPM_BUILD_ROOT
 
 %files
-%defattr(-,%{jboss_name},%{jboss_name})
+%defattr(-,jboss,jboss)
 /
 
 %changelog

@@ -88,7 +88,7 @@ echo "jboss-as6 soft nofile 4096"           >> /etc/security/limits.conf
 echo "jboss-as6 hard nofile 4096"           >> /etc/security/limits.conf
 
 %files
-%defattr(-,%{name},%{name})
+%defattr(-,jboss,jboss)
 /
 
 %changelog
