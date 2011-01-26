@@ -52,19 +52,15 @@ cp -R jboss-%{version}/server/all/deploy/jbossws-console-activator-jboss-beans.x
 cp -R jboss-%{version}/server/all/deploy/jbossws-console-activator-jboss-beans.xml $RPM_BUILD_ROOT/opt/%{jboss_name}/server/default/deploy/
 cp -R jboss-%{version}/server/all/deploy/jbossws-console-activator-jboss-beans.xml $RPM_BUILD_ROOT/opt/%{jboss_name}/server/standard/deploy/
 
-
 install -d m 755 $RPM_BUILD_ROOT/opt/%{jboss_name}/developer-patches
 cp %{SOURCE1} $RPM_BUILD_ROOT/opt/%{jboss_name}/developer-patches/
 
-install -d -m 755 $RPM_BUILD_ROOT/etc/sysconfig
-
-echo "JBOSS_CONFIG=%{jboss_profile}"                    >> $RPM_BUILD_ROOT/etc/sysconfig/%{jboss_name}
-echo "JBOSS_TMP=\$JBOSS_HOME/tmp"                       >> $RPM_BUILD_ROOT/etc/sysconfig/%{jboss_name}
-
 %post
-
 cd /opt/%{jboss_name}/bin
 /usr/bin/patch < ../developer-patches/debug-run-conf.patch
+
+echo "JBOSS_CONFIG=%{jboss_profile}"                    >> /etc/sysconfig/%{jboss_name}
+echo "JBOSS_TMP=\$JBOSS_HOME/tmp"                       >> /etc/sysconfig/%{jboss_name}
 
 %clean
 rm -Rf $RPM_BUILD_ROOT
