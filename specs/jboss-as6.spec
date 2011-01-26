@@ -1,13 +1,11 @@
-%define jboss_version 6.0.0.Final
-
 Summary:        JBoss Application Server
 Name:           jboss-as6
-Version:        %{jboss_version}
+Version:        6.0.0.Final
 Release:        1
 License:        LGPL
 BuildArch:      noarch
 Group:          Applications/System
-Source0:        http://cdnetworks-us-1.dl.sourceforge.net/project/jboss/JBoss/JBoss-%{jboss_version}/jboss-as-distribution-%{jboss_version}.zip
+Source0:        http://cdnetworks-us-1.dl.sourceforge.net/project/jboss/JBoss/JBoss-%{version}/jboss-as-distribution-%{version}.zip
 Source1:        %{name}.init
 Source2:        jboss-as6-https-connector.patch
 Source3:        jboss-as6-jmx-console.patch
@@ -28,13 +26,13 @@ The JBoss Application Server
 %global _binaries_in_noarch_packages_terminate_build 0
 
 %prep
-%setup -n jboss-%{jboss_version}
+%setup -n jboss-%{version}
 
 %install
 cd %{_topdir}/BUILD
 
 install -d -m 755 $RPM_BUILD_ROOT/opt/%{name}
-cp -R jboss-%{jboss_version}/* $RPM_BUILD_ROOT/opt/%{name}
+cp -R jboss-%{version}/* $RPM_BUILD_ROOT/opt/%{name}
 
 # it caused adding bad requires for package
 rm -rf $RPM_BUILD_ROOT/opt/%{name}/bin/jboss_init_solaris.sh
