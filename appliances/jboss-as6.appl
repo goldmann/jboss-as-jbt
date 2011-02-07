@@ -1,6 +1,6 @@
 name: jboss-as6
 version: 1
-release: 0
+release: 1
 summary: Appliance with JBoss AS 6
 hardware:
   memory: 1024
