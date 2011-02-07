@@ -38,25 +38,25 @@ cp -R jboss-%{version}/* $RPM_BUILD_ROOT/opt/%{name}
 rm -rf $RPM_BUILD_ROOT/opt/%{name}/bin/jboss_init_solaris.sh
 
 # Remove ROOT.war files
-find $RPM_BUILD_ROOT/opt/%{name}/server/ -name "ROOT.war" | xargs rm -rf
+# find $RPM_BUILD_ROOT/opt/%{name}/server/ -name "ROOT.war" | xargs rm -rf
 
 # Remove gratuitous services and consoles
-find $RPM_BUILD_ROOT/opt/%{name}/server/ -name "httpha-invoker.sar" | xargs rm -rf
-find $RPM_BUILD_ROOT/opt/%{name}/server/ -name "juddi-service.sar" | xargs rm -rf
+# find $RPM_BUILD_ROOT/opt/%{name}/server/ -name "httpha-invoker.sar" | xargs rm -rf
+# find $RPM_BUILD_ROOT/opt/%{name}/server/ -name "juddi-service.sar" | xargs rm -rf
 
-find $RPM_BUILD_ROOT/opt/%{name}/common/ -name "jbossws-console.war" | xargs rm -rf
-find $RPM_BUILD_ROOT/opt/%{name}/server/ -name "jbossws.war" | xargs rm -rf
-find $RPM_BUILD_ROOT/opt/%{name}/server/ -name "jbossws-console-activator-jboss-beans.xml" | xargs rm -rf
+# find $RPM_BUILD_ROOT/opt/%{name}/common/ -name "jbossws-console.war" | xargs rm -rf
+# find $RPM_BUILD_ROOT/opt/%{name}/server/ -name "jbossws.war" | xargs rm -rf
+# find $RPM_BUILD_ROOT/opt/%{name}/server/ -name "jbossws-console-activator-jboss-beans.xml" | xargs rm -rf
 
 # Open the HTTPS Connector
-cd $RPM_BUILD_ROOT/opt/%{name}/server/all/deploy/jbossweb.sar && patch -i %{SOURCE2}
-cd $RPM_BUILD_ROOT/opt/%{name}/server/default/deploy/jbossweb.sar && patch -i %{SOURCE2}
-cd $RPM_BUILD_ROOT/opt/%{name}/server/jbossweb-standalone/deploy/jbossweb.sar && patch -i %{SOURCE2}
-cd $RPM_BUILD_ROOT/opt/%{name}/server/osgi/deploy/jbossweb.sar && patch -i %{SOURCE2}
-cd $RPM_BUILD_ROOT/opt/%{name}/server/standard/deploy/jbossweb.sar && patch -i %{SOURCE2}
+# cd $RPM_BUILD_ROOT/opt/%{name}/server/all/deploy/jbossweb.sar && patch -i %{SOURCE2}
+# cd $RPM_BUILD_ROOT/opt/%{name}/server/default/deploy/jbossweb.sar && patch -i %{SOURCE2}
+# cd $RPM_BUILD_ROOT/opt/%{name}/server/jbossweb-standalone/deploy/jbossweb.sar && patch -i %{SOURCE2}
+# cd $RPM_BUILD_ROOT/opt/%{name}/server/osgi/deploy/jbossweb.sar && patch -i %{SOURCE2}
+# cd $RPM_BUILD_ROOT/opt/%{name}/server/standard/deploy/jbossweb.sar && patch -i %{SOURCE2}
 
 # Enable authentication for jmx-console
-cd $RPM_BUILD_ROOT/opt/%{name} && patch -p0 -i %{SOURCE3}
+# cd $RPM_BUILD_ROOT/opt/%{name} && patch -p0 -i %{SOURCE3}
 
 install -d -m 755 $RPM_BUILD_ROOT%{_initrddir}
 install -m 755 %{SOURCE1} $RPM_BUILD_ROOT%{_initrddir}/%{name}
@@ -83,6 +83,7 @@ ln -s /etc/sysconfig/%{name} /etc/sysconfig/jboss-as
 ln -s /opt/%{name} /opt/jboss-as
 ln -s /etc/init.d/%{name} /etc/init.d/jboss-as
 ln -s /etc/init.d/%{name} /etc/init.d/jboss_as
+ln -s /etc/sysconfig/%{name} /home/jboss/.jboss
 
 echo "jboss-as6 soft nofile 4096"           >> /etc/security/limits.conf
 echo "jboss-as6 hard nofile 4096"           >> /etc/security/limits.conf
